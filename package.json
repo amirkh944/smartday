@@ -1,0 +1,57 @@
+{
+  "name": "smartday-desktop",
+  "version": "2.0.0",
+  "description": "SmartDay Personal Productivity Suite - Offline-first Windows desktop app",
+  "main": "main.js",
+  "author": "SmartDay",
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "electron .",
+    "pack:dir": "electron-builder --dir --win",
+    "dist:win": "electron-builder --win nsis portable",
+    "dist:win:nsis": "electron-builder --win nsis"
+  },
+  "devDependencies": {
+    "electron": "45.5.0",
+    "electron-builder": "26.18.0"
+  },
+  "build": {
+    "appId": "ir.smartday.personal",
+    "productName": "SmartDay",
+    "asar": true,
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "index.html",
+      "widget.html",
+      "renderer.js",
+      "widget.js",
+      "jalali.js",
+      "styles.css",
+      "widget.css",
+      "assets/**/*",
+      "package.json"
+    ],
+    "win": {
+      "icon": "build/icon.ico",
+      "target": ["nsis", "portable"],
+      "artifactName": "SmartDay-Setup-${version}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "SmartDay",
+      "perMachine": false,
+      "deleteAppDataOnUninstall": false
+    },
+    "portable": {
+      "artifactName": "SmartDay-Portable-${version}.${ext}"
+    }
+  }
+}

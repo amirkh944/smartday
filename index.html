@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'self'; font-src 'self' data:">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>SmartDay | دستیار مدیریت شخصی</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand"><div class="brand-mark">S</div><div><strong>SmartDay</strong><span>Personal OS</span></div></div>
+      <button class="quick-add" data-action="quick-add"><span class="plus">＋</span><span>ثبت سریع مورد</span><kbd>N</kbd></button>
+      <div class="nav-caption">مدیریت روزانه</div>
+      <nav class="nav-group">
+        <button class="nav-item active" data-page="dashboard"><span class="nav-icon">⌂</span><span>نمای امروز</span><span class="nav-count" id="navTodayCount">۰</span></button>
+        <button class="nav-item" data-page="tasks"><span class="nav-icon">☷</span><span>وظایف</span><span class="nav-count" id="navTaskCount">۰</span></button>
+        <button class="nav-item" data-page="projects"><span class="nav-icon">▦</span><span>پروژه‌ها</span></button>
+        <button class="nav-item" data-page="calendar"><span class="nav-icon">▣</span><span>تقویم شمسی</span></button>
+        <button class="nav-item" data-page="reminders"><span class="nav-icon">◷</span><span>یادآورها</span></button>
+      </nav>
+      <div class="nav-caption">دانش و ارتباطات</div>
+      <nav class="nav-group">
+        <button class="nav-item" data-page="ideas"><span class="nav-icon">✧</span><span>بانک ایده</span></button>
+        <button class="nav-item" data-page="websites"><span class="nav-icon">◎</span><span>وب‌سایت‌ها</span></button>
+        <button class="nav-item" data-page="contacts"><span class="nav-icon">♙</span><span>مخاطبین</span></button>
+        <button class="nav-item" data-page="notes"><span class="nav-icon">▤</span><span>یادداشت‌ها</span></button>
+      </nav>
+      <div class="nav-caption">رشد و زندگی</div>
+      <nav class="nav-group">
+        <button class="nav-item" data-page="goals"><span class="nav-icon">⚑</span><span>اهداف</span></button>
+        <button class="nav-item" data-page="finance"><span class="nav-icon">◈</span><span>حسابداری شخصی</span></button>
+        <button class="nav-item" data-page="habits"><span class="nav-icon">✳</span><span>ردیاب عادت</span><span class="low-tag">کم‌اولویت</span></button>
+        <button class="nav-item" data-page="mood"><span class="nav-icon">☻</span><span>ردیاب خلق‌وخو</span></button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="sidebar-ai-card"><div class="ai-orb">✦</div><div><strong>دستیار هوشمند</strong><small>تحلیل و اقدام در همه بخش‌ها</small></div><button data-page="assistant" aria-label="دستیار">↗</button></div>
+        <button class="nav-item" data-page="methods"><span class="nav-icon">◫</span><span>روش‌های بهره‌وری</span></button>
+        <button class="nav-item" data-page="settings"><span class="nav-icon">⚙</span><span>تنظیمات</span></button>
+        <div class="local-status"><i></i><span>ذخیره‌سازی محلی فعال</span><b>آفلاین</b></div>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <div class="topbar-left"><button class="mobile-menu" id="mobileMenu">☰</button><div class="breadcrumb"><span>SmartDay</span><b>/</b><strong id="pageTitle">نمای امروز</strong></div></div>
+        <div class="topbar-right">
+          <div class="today-chip"><span class="today-dot"></span><span id="headerDate"></span></div>
+          <button class="icon-button" data-action="toggle-theme" title="تغییر پوسته">◐</button>
+          <button class="icon-button" data-page="assistant" title="دستیار هوشمند">✧</button>
+          <button class="avatar">A</button>
+        </div>
+      </header>
+      <div class="page-container" id="pageRoot"></div>
+    </main>
+  </div>
+
+  <div class="modal-backdrop" id="modalRoot" aria-hidden="true"></div>
+  <div class="toast" id="toast"></div>
+  <script src="jalali.js"></script>
+  <script src="renderer.js"></script>
+</body>
+</html>
